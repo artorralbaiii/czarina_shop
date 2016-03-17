@@ -1,0 +1,22 @@
+{
+  "name": "czarina_shop",
+  "version": "1.0.0",
+  "description": "Czarina Online Store",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "store"
+  ],
+  "author": "Jong Torralba",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "connect-mongo": "^1.1.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.7"
+  }
+}
