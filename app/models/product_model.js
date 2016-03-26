@@ -7,7 +7,9 @@ var ProductSchema = new schema({
 	'availability': String,
 	'price': Number,
 	'main_image': String,
-	'sub_images': Array 
+	'sub_images': Array,
+	'is_sale': Boolean,
+	'is_new': Boolean
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

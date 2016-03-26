@@ -139,6 +139,7 @@ exports.updateProduct = function(req, res){
 	}); // product_model.findOne
 };
 
+// Return Product by Product ID (_id)
 exports.getProduct = function(req, res){
 	product_model.findOne({'_id': req.params.id}, function(err, doc){
 		if(err){
@@ -152,6 +153,16 @@ exports.getProduct = function(req, res){
 // Return All Products
 exports.allProducts = function(req, res){
 	product_model.find({}, function(err, docs){
+		if(err){
+			res.json(err);
+		} else {
+			res.json(docs);
+		}
+	});
+};
+
+exports.allProductsByCategory = function(req, res){
+	product_model.find({'category_id': req.params.id}, function(err, docs){
 		if(err){
 			res.json(err);
 		} else {

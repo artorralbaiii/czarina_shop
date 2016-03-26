@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="left-sidebar">
+				<h2>Category</h2>
+				<div class="panel-group category-products" id="accordian">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a id="cat-all" class="active" ng-click="shop.reloadProducts(null,'ALL PRODUCTS', $event);" href="">(Show All)</a></h4>
+						</div>
+					</div>
+					<div class="panel panel-default" ng-repeat="category in shop.categories">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a id="{{category._id}}" ng-click="shop.reloadProducts(category._id, category.category, $event);" href="">{{category.category}}</a></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- Col 3-->
+		
+		<div class="col-sm-9">
+			<div class="featured-items">
+				<h2 class="title text-center">{{shop.currentCategory}}</h2>
+
+				<div class="col-sm-4" ng-repeat="product in shop.products | filter:shop.searchText"> <!-- Product -->
+					<div class="product-image-wrapper">
+						<div class="single-products">
+							<div class="productinfo text-center">
+								<img src="{{shop.gdriveBaseUrl + shop.gdriveMainFolder +  product.main_image}}" alt="{{product.product_name}}">
+								<h2>P{{product.price}}</h2>
+								<p>{{product.product_name}}</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+							</div>
+							<img ng-if="product.is_sale" src="app/assets/images/new.png" class="new" alt="" />
+							<img ng-if="product.is_new" src="app/assets/images/sale.png" class="sale" alt="" />
+						</div>
+					</div>
+				</div>
+
+				<ul class="pagination">
+					<li class="active"><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">&raquo;</a></li>
+				</ul>
+			</div><!--Items-->
+		</div>
+	</div> 
+</div>
+	
